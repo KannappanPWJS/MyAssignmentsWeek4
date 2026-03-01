@@ -28,7 +28,7 @@ test ("File Upload Assignment", async({page})=>{
     await page.click("[data-value='Prospect']")
     await page.locator("(//div[@class='slds-combobox_container'])[4]").click();
     await page.click("[data-value='Banking']")
-    await page.locator("(//button[text()='Save'])[2]").click();
+    await page.locator("//button[text()='Save']").click();
     await expect(page.locator("//div[@class='slds-hyphenate']")).toContainText(/was created/);
     const upload = page.waitForEvent('filechooser',{timeout: 5000});
     await page.locator("//span[text()='Upload Files']").click();
@@ -39,3 +39,4 @@ test ("File Upload Assignment", async({page})=>{
     await expect(page.locator("//div[@class='slds-hyphenate']")).toContainText(/was added/);
     await expect(page.locator("(//span[text()='Blackpng'])[2]")).toHaveText(/Blackpng/);   
 })
+
